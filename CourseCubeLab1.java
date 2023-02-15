@@ -43,5 +43,15 @@ public class CourseCubeLab1 {
         System.out.println("-----3------");
         Stream<Integer> myStream3 = numsList.stream();
         myStream3.forEach(System.out::println);
+        
+        //Adding two list to stream
+        List<Integer> list=Arrays.asList(11,12,13);
+        List<Integer> list1=Arrays.asList(14,15,16);
+        Stream<List<Integer>> stream=Stream.of(list,list1);
+        
+        //Adding two streams to stream using concat
+        Stream<Integer> stream=Arrays.asList(11,12,13).stream();
+        Stream<Integer> stream1=Arrays.asList(14,15,16).stream();
+        Stream<Integer> stream2=Stream.concat(stream,stream1);
     }
 }
