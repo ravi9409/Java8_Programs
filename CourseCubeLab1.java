@@ -130,6 +130,16 @@ public class StreamClassLab {
         System.out.println(myset2);
         System.out.println("-------------");
         System.out.println("Done!!!");
-        
+        //counting method
+        List<Integer> numsList = Arrays.asList(1, 2, 3, 4, 5);
+        long count = numsList.stream()
+                .filter(num -> num % 2 != 0)
+                .collect(Collectors.counting());
+        System.out.println(count);
+        //reducing method
+        long sumResult = numsList.stream()
+                .filter(num -> num % 2 != 0)
+                .collect(Collectors.reducing(0, (num1,num2)-> num1+num2));
+        System.out.println(sumResult);
     }
 }
