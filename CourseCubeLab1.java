@@ -111,6 +111,25 @@ public class StreamClassLab {
         Optional<Integer> mycourse2 =numList.stream().findFirst();
         mycourse2.ifPresent(System.out::println);
         
+         List<Integer> numsList = Arrays.asList(5, 4, 8, 3, 6, 7, 2, 9);
+        //toCollection method
+        List<Integer> mylist2 = numsList.stream()
+                .filter(num -> num % 2 == 0)
+                .map(num -> num * num)
+                .sorted()
+                .collect(Collectors.toCollection(LinkedList::new));
+        System.out.println(mylist2);
+        System.out.println("-------------");
+        System.out.println("Done!!!");
+
+        Set<Integer> myset2 = numsList.stream()
+                .filter(num -> num % 2 == 0)
+                .map(num -> num * num)
+                .sorted()
+                .collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(myset2);
+        System.out.println("-------------");
+        System.out.println("Done!!!");
         
     }
 }
