@@ -102,5 +102,15 @@ public class StreamClassLab {
         minNum.ifPresent(System.out::println);
         System.out.println("---------------------");
         System.out.println("Done!!!");
+        
+        //findAny method
+        Optional<Integer> mycourse1 =numList.stream().findAny();
+        mycourse1.ifPresent(System.out::println);
+        //findFirst method
+        System.out.println("-------------");
+        Optional<Integer> mycourse2 =numList.stream().findFirst();
+        mycourse2.ifPresent(System.out::println);
+        
+        
     }
 }
