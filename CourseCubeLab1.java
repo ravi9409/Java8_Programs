@@ -53,5 +53,13 @@ public class StreamClassLab {
         Stream<Integer> stream=Arrays.asList(11,12,13).stream();
         Stream<Integer> stream1=Arrays.asList(14,15,16).stream();
         Stream<Integer> stream2=Stream.concat(stream,stream1);
+        
+         //using stream iterate function
+        Stream.iterate(11,e->e+1).limit(10).forEach(System.out::println);
+        
+        //Generate method to produce random stream
+        Stream.generate(() -> (new Random()).nextInt(100))
+                .limit(10)
+                .forEach(System.out::println);
     }
 }
