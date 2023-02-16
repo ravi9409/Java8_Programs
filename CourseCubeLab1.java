@@ -141,5 +141,8 @@ public class StreamClassLab {
                 .filter(num -> num % 2 != 0)
                 .collect(Collectors.reducing(0, (num1,num2)-> num1+num2));
         System.out.println(sumResult);
+        
+          //Returns a Stream consisting of the elements of this stream, each boxed to an Integer.
+      List<Integer> list=IntStream.of(1,2,3,4,5).boxed().collect(Collectors.toList());
     }
 }
