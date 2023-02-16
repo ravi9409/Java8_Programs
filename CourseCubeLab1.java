@@ -77,5 +77,30 @@ public class StreamClassLab {
                 .reduce((num1, num2) -> num2)
                 .orElse(-1);
         System.out.println(lastElement);
+        
+        //count method
+        long count= mylist.stream()
+                .filter(num -> num%2!=0)
+                .map(num -> num * num)
+                .count();
+        System.out.println(count);
+        System.out.println("---------------------");
+        //max method
+        Optional<Integer> maxNum = mylist.stream()
+                .filter(num -> num%2!=0)
+                .map(num -> num * num)
+                .max((num1, num2) -> num1.compareTo(num2));
+        System.out.println(maxNum);
+        maxNum.ifPresent(System.out::println);
+        System.out.println("---------------------");
+        //min method
+        Optional<Integer> minNum = mylist.stream()
+                .filter(num -> num%2!=0)
+                .map(num -> num * num)
+                .min((num1, num2) -> num1.compareTo(num2));
+        System.out.println(minNum);
+        minNum.ifPresent(System.out::println);
+        System.out.println("---------------------");
+        System.out.println("Done!!!");
     }
 }
