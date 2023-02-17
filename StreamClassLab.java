@@ -201,5 +201,10 @@ public class StreamClassLab {
     List<Student> studentList= DataUtil.getStudentList();
     Map<Boolean,List<Student>> stuMap=studentList.stream().collect(Collectors.partitioningBy(stu->stu.getFeeBal()==0));
         System.out.println(stuMap);
+        
+           //summingDouble By Example
+    List<Student> studentList= DataUtil.getStudentList();
+    double totalFeebal=studentList.stream().collect(Collectors.summingDouble(Student::getFeeBal));
+        System.out.println(totalFeebal);
     }
 }
