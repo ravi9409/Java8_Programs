@@ -144,5 +144,23 @@ public class StreamClassLab {
         
           //Returns a Stream consisting of the elements of this stream, each boxed to an Integer.
       List<Integer> list=IntStream.of(1,2,3,4,5).boxed().collect(Collectors.toList());
+        
+         List<Integer> numsList = Arrays.asList(1, 2, 3, 4, 5);
+        long count = numsList.stream()
+                .filter(num -> num % 2 != 0)
+                .collect(Collectors.counting());
+        System.out.println(count);
+        long sumResult = numsList.stream()
+                .filter(num -> num % 2 != 0)
+                .collect(Collectors.reducing(0, (num1, num2) -> num1 + num2));
+        System.out.println(sumResult);
+        long mulResult = numsList.stream()
+                .filter(num -> num % 2 != 0)
+                .collect(Collectors.reducing(1, (num1, num2) -> num1 * num2));
+        System.out.println(mulResult);
+        List<String> courseList = Arrays.asList("Java", "SpringBoot", "DevOps");
+        String result = courseList.stream()
+                .collect(Collectors.joining(" --- "));
+        System.out.println(result);
     }
 }
