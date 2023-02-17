@@ -196,5 +196,10 @@ public class StreamClassLab {
                         )
                 );
         System.out.println(result);
+        
+        //Partitioning By Example
+    List<Student> studentList= DataUtil.getStudentList();
+    Map<Boolean,List<Student>> stuMap=studentList.stream().collect(Collectors.partitioningBy(stu->stu.getFeeBal()==0));
+        System.out.println(stuMap);
     }
 }
