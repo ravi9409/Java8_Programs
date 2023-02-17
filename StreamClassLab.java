@@ -220,5 +220,18 @@ public class StreamClassLab {
             Collectors.groupingBy(Student::getCourseName,
             Collectors.summingDouble(Student::getFeeBal)));
         System.out.println(maps);
+        
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 6);
+        List<String> strings = Arrays.asList("alpha", "beta", "gamma");
+        Integer integer = integers
+                .stream()
+                .collect(Collectors.minBy(Comparator.naturalOrder()))
+                .get();
+        System.out.println(integer);
+        String string = strings
+                .stream()
+                .collect(Collectors.minBy(Comparator.reverseOrder()))
+                .get();
+        System.out.println(string);
     }
 }
