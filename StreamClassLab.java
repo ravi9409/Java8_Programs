@@ -206,5 +206,12 @@ public class StreamClassLab {
     List<Student> studentList= DataUtil.getStudentList();
     double totalFeebal=studentList.stream().collect(Collectors.summingDouble(Student::getFeeBal));
         System.out.println(totalFeebal);
+        
+        //Getting total feebal as per grouping
+    List<Student> studentList= DataUtil.getStudentList();
+    Map<String,Double> maps=studentList.stream().collect(
+            Collectors.groupingBy(Student::getCourseName,
+            Collectors.summingDouble(Student::getFeeBal)));
+        System.out.println(maps);
     }
 }
