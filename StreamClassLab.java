@@ -162,5 +162,39 @@ public class StreamClassLab {
         String result = courseList.stream()
                 .collect(Collectors.joining(" --- "));
         System.out.println(result);
+        
+         List<Student> numsList = DataUtil.getStudentList();
+        numsList.forEach(System.out::println);
+        System.out.println("--------------------------");
+        numsList.stream().sorted((stu1, stu2) -> stu1.getSname().compareTo(stu2.getSname())).forEach(System.out::println);
+        System.out.println("--------------------------");
+        numsList.stream().filter(mystu -> mystu.getFeeBal() > 0).forEach(System.out::println);
+        System.out.println("------------------------------");
+        Optional<Student> studentOptional = numsList.stream().max((stu1, stu2) -> (int) (stu2.getFeePaid() - stu1.getFeePaid()));
+        studentOptional.ifPresent(System.out::println);
+        System.out.println("------------------------------");
+        //group by method
+        Map<String, List<Student>> map = numsList.stream().collect(Collectors.groupingBy(Student::getSname));
+        System.out.println(map);
+        System.out.println("-------------------------------");
+        //Number of times element is repeated in an array.
+        int[] arr = {1, 2, 3, 2, 1, 4, 5, 4};
+        Map<Integer, Long> maps = Arrays.stream(arr)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(maps);
+        System.out.println("-----------------------");
+        //Number of times element is repeated in an String array.
+        List<String> items =
+                Arrays.asList("apple", "apple", "banana",
+                        "apple", "orange", "banana", "papaya");
+
+        Map<String, Long> result =
+                items.stream().collect(
+                        Collectors.groupingBy(
+                                Function.identity(), Collectors.counting()
+                        )
+                );
+        System.out.println(result);
     }
 }
