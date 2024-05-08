@@ -1,0 +1,13 @@
+Ques: What is lambda expression?
+It is an annonymous function 
+1. Not having any name.
+2. Not having any modifier.
+3. Not having any return type.
+
+Ques: What is functional interface?
+Interface having Single abstract method is called functional interface
+eg of functional interface are :
+1. Runnable
+2. Callable
+3. ActionListener
+4. Comparable
